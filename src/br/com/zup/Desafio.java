@@ -25,7 +25,7 @@ parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
 
         System.out.println("** Bem vinde ao sistema de funcionárixs **");
 //        Menu Inicial
-        menuInicial = "O que você gostaria de fazer?\n1- Adicionar funcionárixs\n2- Exibir lista de funcionárixs cadastradxs\n3- Excluir funcionárixs\n4- Encerrar o programa";
+        menuInicial = "\nO que você gostaria de fazer?\n1- Adicionar funcionárixs\n2- Exibir lista de funcionárixs cadastradxs\n3- Excluir funcionárixs\n4- Encerrar o programa\n";
 
 //        Para reutilizar Menu Inicial
         System.out.println(menuInicial);
@@ -47,7 +47,7 @@ parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
                     System.out.println("Informe o CPF: ");
                     cpfFuncionarix = leitor.nextLine();
 
-
+                    //          Validando se o CPF já estava cadastrado
                     if (funcionarixs.containsKey(cpfFuncionarix)) {
                         System.out.println("Funcionárix já está cadastradx. Informe outro CPF");
                     } else {
@@ -63,7 +63,7 @@ parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
                     break;
 
                 case 2:
-
+//                    Verificando se tem algum item na lista antes de imprimir
                     if (funcionarixs.size() != 0) {
 
                         for (String chaveFuncionario : funcionarixs.keySet()) {
