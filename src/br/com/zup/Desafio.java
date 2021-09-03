@@ -11,11 +11,8 @@ public class Desafio {
 Crie um programa para gerenciar uma lista de funcionários de uma empresa,
 cada funcionário tem nome, telefone, email e CPF. No final do programa deve ser
 exibida a lista de funcionários cadastrados.
-Entrega Média: O sistema permite adicionar mais de um funcionário e apresenta
-um menu para decidir se deverá:
-1. Adicionar mais funcionários.
-2. Exibir a lista de todos os funcionários cadastrados.
-3. Encerrar o programa.
+Entrega Máxima: O Sistema permite excluir um funcionário usando como
+parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
  */
 //        Instanciando Scanner
         Scanner leitor = new Scanner(System.in);
@@ -28,7 +25,7 @@ um menu para decidir se deverá:
 
         System.out.println("** Bem vinde ao sistema de funcionárixs **");
 //        Menu Inicial
-        menuInicial = "O que você gostaria de fazer?\n1- Adicionar funcionárixs\n2- Exibir lista de funcionárixs cadastradxs\n3- Encerrar o programa";
+        menuInicial = "O que você gostaria de fazer?\n1- Adicionar funcionárixs\n2- Exibir lista de funcionárixs cadastradxs\n3- Excluir funcionárixs\n4- Encerrar o programa";
 
 //        Para reutilizar Menu Inicial
         System.out.println(menuInicial);
@@ -77,6 +74,23 @@ um menu para decidir se deverá:
                     break;
 
                 case 3:
+                    System.out.println("Para excluir um funcionárix, informe o CPF delx: ");
+                    cpfFuncionarix = leitor.next();
+
+                    if (funcionarixs.containsKey(cpfFuncionarix)) {
+                        funcionarixs.remove(cpfFuncionarix);
+                        System.out.println("Funcionárix deletadx do cadastro com sucesso!");
+                    } else {
+                        System.out.println("CPF não está cadastrado.");
+                    }
+
+                    System.out.println(menuInicial);
+                    opcaoEscolhida = leitor.nextInt();
+                    leitor.nextLine();
+
+                    break;
+
+                case 4:
                     System.out.println("Cadastro encerrado.");
                     if (funcionarixs.size() != 0) {
 
@@ -87,6 +101,7 @@ um menu para decidir se deverá:
                         System.out.println("Lista está vazia!");
                     }
                     opcao = false;
+
                     break;
 
                 default:
@@ -94,9 +109,8 @@ um menu para decidir se deverá:
                     System.out.println(menuInicial);
                     opcaoEscolhida = leitor.nextInt();
                     leitor.nextLine();
+
                     break;
-
-
             }
         }
     }
