@@ -21,7 +21,7 @@ um menu para decidir se deverá:
         Scanner leitor = new Scanner(System.in);
 
 //        Declarando variáveis
-        String nomeFuncionarix = null, telefoneFuncionarix = null, emailFuncionarix = null, cpfFuncionarix = null, menuInicial;
+        String nomeFuncionarix = "", telefoneFuncionarix = "", emailFuncionarix = "", cpfFuncionarix = "", menuInicial;
         Map<String, String> funcionarixs = new HashMap<String, String>();
         int opcaoEscolhida;
         boolean opcao = true;
@@ -39,7 +39,7 @@ um menu para decidir se deverá:
 
             switch (opcaoEscolhida) {
                 case 1:
-                //        Cadastrando funcionárixs
+                    //        Cadastrando funcionárixs
                     System.out.println("Informe o nome: ");
                     nomeFuncionarix = leitor.nextLine();
                     System.out.println("Informe o telefone: ");
@@ -78,6 +78,14 @@ um menu para decidir se deverá:
 
                 case 3:
                     System.out.println("Cadastro encerrado.");
+                    if (funcionarixs.size() != 0) {
+
+                        for (String chaveFuncionario : funcionarixs.keySet()) {
+                            System.out.println("Funcionário: " + funcionarixs.get(chaveFuncionario) + " CPF:" + chaveFuncionario);
+                        }
+                    } else {
+                        System.out.println("Lista está vazia!");
+                    }
                     opcao = false;
                     break;
 
