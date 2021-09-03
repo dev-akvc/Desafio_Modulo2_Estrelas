@@ -37,6 +37,7 @@ parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
             switch (opcaoEscolhida) {
                 case 1:
                     //        Cadastrando funcionárixs
+
                     System.out.println("Informe o nome: ");
                     nomeFuncionarix = leitor.nextLine();
                     System.out.println("Informe o telefone: ");
@@ -45,10 +46,15 @@ parâmetro o CPF e não permite inserir um funcionário com o CPF repetido.
                     emailFuncionarix = leitor.nextLine();
                     System.out.println("Informe o CPF: ");
                     cpfFuncionarix = leitor.nextLine();
-                    funcionarixs.put(cpfFuncionarix, " Nome: " + nomeFuncionarix + " Telefone: " + telefoneFuncionarix + " E-mail: " + emailFuncionarix);
 
-                    //        Confirmação de cadastro
-                    System.out.println("Cadastro realizado!");
+
+                    if (funcionarixs.containsKey(cpfFuncionarix)) {
+                        System.out.println("Funcionárix já está cadastradx. Informe outro CPF");
+                    } else {
+                        funcionarixs.put(cpfFuncionarix, " Nome: " + nomeFuncionarix + " Telefone: " + telefoneFuncionarix + " E-mail: " + emailFuncionarix);
+                        //        Confirmação de cadastro
+                        System.out.println("Cadastro realizado!");
+                    }
 
                     System.out.println(menuInicial);
                     opcaoEscolhida = leitor.nextInt();
